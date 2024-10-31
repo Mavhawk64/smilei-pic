@@ -1,3 +1,5 @@
+import os
+
 import happi
 import matplotlib.pyplot as plt
 import numpy as np
@@ -46,7 +48,7 @@ ax3 = ax.secondary_yaxis(
 ax3.set_ylabel(r"$\Omega_i t$")
 
 # Save plot:
-plt.savefig("/mnt/c/Users/mavbe/Desktop/Coding Folder/repos/smilei-pic/shock/shock.png")
+plt.savefig(f"{os.path.dirname(os.path.realpath(__file__))}/shock.png")
 
 # Show plot
 plt.show()
