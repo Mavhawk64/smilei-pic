@@ -110,16 +110,41 @@ Species(  # type: ignore
 )
 
 # ------------------------------
+# Particle injection
+# ------------------------------
+
+# Electron injector
+ParticleInjector(  # type: ignore
+    species="electron",
+    box_side="xmin",  # Inject from the left
+    number_density=constant(n0),  # type: ignore
+    mean_velocity=[Vin, 0.0, 0.0],
+    temperature=[Te, Te, Te],
+)
+
+# Ion injector
+ParticleInjector(  # type: ignore
+    species="ion",
+    box_side="xmin",  # Inject from the left
+    number_density=constant(n0),  # type: ignore
+    mean_velocity=[Vin, 0.0, 0.0],
+    temperature=[Ti, Ti, Ti],
+)
+
+
+# ------------------------------
 # External fields
 # ------------------------------
 
 # Magnetic field components
 ExternalField(field="Bx", profile=constant(Bx0))  # type: ignore
-
+ExternalField(field="By", profile=constant(0))  # type: ignore
 ExternalField(field="Bz", profile=constant(Bz0))  # type: ignore
 
 # Motional electric field Ey
+ExternalField(field="Ex", profile=constant(0))  # type: ignore
 ExternalField(field="Ey", profile=constant(Ey0))  # type: ignore
+ExternalField(field="Ez", profile=constant(0))  # type: ignore
 
 # ------------------------------
 # Diagnostics
