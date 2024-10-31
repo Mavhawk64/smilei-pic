@@ -1,6 +1,8 @@
 # SMILEI input script for simulating a quasi-parallel collisionless shock
 from math import cos, pi, sin, sqrt
 
+# from smilei import *
+
 # ------------------------------
 # Constants and simulation parameters
 # ------------------------------
@@ -51,7 +53,7 @@ Nx = int(Lx / dx)  # Number of grid points
 # Main simulation parameters
 # ------------------------------
 
-Main(
+Main(  # type: ignore
     geometry="1Dcartesian",
     interpolation_order=2,
     cell_length=[dx],
@@ -62,8 +64,8 @@ Main(
     # simulation_time=1.77e5 * dt,  # Original total simulation time
     simulation_time=1.0e4 * dt,  # POC: Reduce total simulation time
     time_fields_frozen=0.0,
-    EM_boundary_conditions=[["silver-muller"]],
-    random_seed=smilei_mpi_rank,
+    EM_boundary_conditions=[["periodic"]],
+    random_seed=smilei_mpi_rank,  # type: ignore
 )
 
 # ------------------------------
@@ -71,7 +73,7 @@ Main(
 # ------------------------------
 
 # Electrons
-Species(
+Species(  # type: ignore
     name="electron",
     position_initialization="random",
     momentum_initialization="maxwell-juettner",
@@ -79,7 +81,7 @@ Species(
     particles_per_cell=4,  # POC: Reduce number of particles per cell
     mass=me,
     charge=-e_charge,
-    number_density=constant(n0),
+    number_density=constant(n0),  # type: ignore
     mean_velocity=[Vin, 0.0, 0.0],
     temperature=[Te, Te, Te],
     boundary_conditions=[
@@ -88,7 +90,7 @@ Species(
 )
 
 # Ions
-Species(
+Species(  # type: ignore
     name="ion",
     position_initialization="random",
     momentum_initialization="maxwell-juettner",
@@ -96,7 +98,7 @@ Species(
     particles_per_cell=4,  # POC: Reduce number of particles per cell
     mass=mi,
     charge=e_charge,
-    number_density=constant(n0),
+    number_density=constant(n0),  # type: ignore
     mean_velocity=[Vin, 0.0, 0.0],
     temperature=[Ti, Ti, Ti],
     boundary_conditions=[
@@ -112,28 +114,28 @@ Species(
 # ------------------------------
 
 # Magnetic field components
-ExternalField(field="Bx", profile=constant(Bx0))
+ExternalField(field="Bx", profile=constant(Bx0))  # type: ignore
 
-ExternalField(field="Bz", profile=constant(Bz0))
+ExternalField(field="Bz", profile=constant(Bz0))  # type: ignore
 
 # Motional electric field Ey
-ExternalField(field="Ey", profile=constant(Ey0))
+ExternalField(field="Ey", profile=constant(Ey0))  # type: ignore
 
 # ------------------------------
 # Diagnostics
 # ------------------------------
 
 # Field diagnostics
-DiagFields(
+DiagFields(  # type: ignore
     every=100,  # Original diagnostic frequency
     fields=["Ex", "Ey", "Ez", "Bx", "By", "Bz"],
 )
 
 # Scalar diagnostics
-DiagScalar(every=100)
+DiagScalar(every=100)  # type: ignore
 
 # Particle diagnostics
-DiagParticleBinning(
+DiagParticleBinning(  # type: ignore
     deposited_quantity="weight",
     every=100,
     species=["electron", "ion"],
