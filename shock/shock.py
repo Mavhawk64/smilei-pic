@@ -64,7 +64,7 @@ Main(  # type: ignore
     number_of_patches=[4],
     timestep=dt,
     # simulation_time=1.77e5 * dt,  # Original total simulation time
-    simulation_time=1*dt,  # 1.0e4 * dt,  # POC: Reduce total simulation time
+    simulation_time=1.0e4 * dt,  # POC: Reduce total simulation time
     time_fields_frozen=0.0,
     EM_boundary_conditions=[["periodic"]],
     random_seed=smilei_mpi_rank,  # type: ignore

@@ -1,21 +1,24 @@
 import os
-
 import happi
 import matplotlib.pyplot as plt
 import numpy as np
 
 # Open the simulation results
-S = happi.Open("/mnt/c/Users/mavbe/Desktop/Coding Folder/repos/smilei-pic/shock")
+S = happi.Open(os.path.dirname(os.path.realpath(__file__)))
 
-# Extract the Bz field
-B_field_diag = S.Field(0, "Bz")
+# Extract the Bx, By, and Bz fields
+Bx_field_diag = S.Field(0, "Bx")
+By_field_diag = S.Field(0, "By")
+Bz_field_diag = S.Field(0, "Bz")
 
-# Get data and timesteps for plotting
-B_field_data = B_field_diag.getData()
-timesteps = B_field_diag.getTimesteps()
+# Get data for each component and the timesteps for plotting
+Bx_field_data = Bx_field_diag.getData()
+By_field_data = By_field_diag.getData()
+Bz_field_data = Bz_field_diag.getData()
+timesteps = Bx_field_diag.getTimesteps()  # Assuming timesteps are consistent across diagnostics
 
-# Calculate B^2 / B_1^2 (B_1^2 taken from the first timestep)
-B_squared = [B**2 for B in B_field_data]
+# Calculate B^2 = Bx^2 + By^2 + Bz^2 / B_1^2 (B_1^2 taken from the first timestep)
+B_squared = [Bx**2 + By**2 + Bz**2 for Bx, By, Bz in zip(Bx_field_data, By_field_data, Bz_field_data)]
 B_1_squared = B_squared[0]  # Use first timestep as reference
 log_B_squared = [np.log10(B / B_1_squared) for B in B_squared]
 
@@ -47,7 +50,7 @@ ax3 = ax.secondary_yaxis(
 )
 ax3.set_ylabel(r"$\Omega_i t$")
 
-# Save plot:
+# Save plot
 plt.savefig(f"{os.path.dirname(os.path.realpath(__file__))}/shock.png")
 
 # Show plot

@@ -654,8 +654,8 @@ smilei_total_cores = 1
 _test_mode = True
 smilei_version='5.1-34-g60be16288-master'
 smilei_mpi_size = 1
-smilei_omp_threads = 32
-smilei_total_cores = 32
+smilei_omp_threads = 20
+smilei_total_cores = 20
 # Some predefined profiles (see doc)
 
 def constant(value, xvacuum=-float("inf"), yvacuum=-float("inf"), zvacuum=-float("inf")):
@@ -1513,7 +1513,8 @@ Bz0 = B0 * sin(theta)  # Bz component
 Ey0 = Vin * B0 * sin(theta)  # Motional electric field Ey
 
 # Electron plasma and cyclotron frequencies
-omega_pe = sqrt(n0 * e_charge**2 / (epsilon0 * me))  # Electron plasma frequency
+# Electron plasma frequency
+omega_pe = sqrt(n0 * e_charge**2 / (epsilon0 * me))
 omega_ce = e_charge * B0 / me  # Electron cyclotron frequency
 
 # Ensure omega_pe / omega_ce = 12.5 as in the paper
@@ -1538,7 +1539,8 @@ Main(  # type: ignore
     cell_length=[dx],
     grid_length=[Lx],
     # number_of_patches=[8],  # Original number of patches
-    number_of_patches=[4],  # POC: Reduce number of patches for faster simulation
+    # POC: Reduce number of patches for faster simulation
+    number_of_patches=[4],
     timestep=dt,
     # simulation_time=1.77e5 * dt,  # Original total simulation time
     simulation_time=1.0e4 * dt,  # POC: Reduce total simulation time
