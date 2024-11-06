@@ -34,7 +34,8 @@ Bz0 = B0 * sin(theta)  # Bz component
 Ey0 = Vin * B0 * sin(theta)  # Motional electric field Ey
 
 # Electron plasma and cyclotron frequencies
-omega_pe = sqrt(n0 * e_charge**2 / (epsilon0 * me))  # Electron plasma frequency
+# Electron plasma frequency
+omega_pe = sqrt(n0 * e_charge**2 / (epsilon0 * me))
 omega_ce = e_charge * B0 / me  # Electron cyclotron frequency
 
 # Ensure omega_pe / omega_ce = 12.5 as in the paper
@@ -59,10 +60,11 @@ Main(  # type: ignore
     cell_length=[dx],
     grid_length=[Lx],
     # number_of_patches=[8],  # Original number of patches
-    number_of_patches=[4],  # POC: Reduce number of patches for faster simulation
+    # POC: Reduce number of patches for faster simulation
+    number_of_patches=[4],
     timestep=dt,
     # simulation_time=1.77e5 * dt,  # Original total simulation time
-    simulation_time=1.0e4 * dt,  # POC: Reduce total simulation time
+    simulation_time=1*dt,  # 1.0e4 * dt,  # POC: Reduce total simulation time
     time_fields_frozen=0.0,
     EM_boundary_conditions=[["periodic"]],
     random_seed=smilei_mpi_rank,  # type: ignore
