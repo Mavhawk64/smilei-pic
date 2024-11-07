@@ -1,2 +1,5 @@
-Target load = 4
-patch count = 4
+Target load = 2
+patch count = 2
+patch count = 2
+patch count = 2
+patch count = 2
