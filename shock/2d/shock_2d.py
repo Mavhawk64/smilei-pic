@@ -7,6 +7,7 @@ L_y = 20.0  # Length of the simulation box in y-direction
 nx = 400    # Number of cells in x-direction
 ny = 200    # Number of cells in y-direction
 timestep = 0.05  # Timestep, in units of the plasma frequency
+num_shocks = 6  # Number of shocks to inject
 
 # Particle and Injector Timing
 particle_velocity = 0.1  # Speed of injected particles in x-direction
@@ -21,7 +22,7 @@ Main(
     grid_length  = [L_x, L_y],
     number_of_patches = [4, 4],
     timestep = timestep,
-    simulation_time = travel_time * 4,  # Run for the travel time of the box
+    simulation_time = travel_time * 2,  # Run for the travel time of the box
     EM_boundary_conditions = [["silver-muller", "reflective"], ["periodic", "periodic"]],
     random_seed = 0
 )
@@ -50,33 +51,22 @@ Species(
 )
 
 # High density injection for the first 1/6 of travel time
-ParticleInjector(
-    name = "high_density_injector",
-    species = "ions",
+for i in range(0, num_shocks):
+    ParticleInjector(
+        name = f"high_density_ion_{i}_injector",
+        species = "ions",
+        box_side = "xmin",
+        mean_velocity = [particle_velocity, 0.0, 0.0],
+        number_density = 0.15,
+        time_envelope = tgaussian(start=i*injection_duration, duration=injection_duration, order=2)
+    )
+    ParticleInjector(
+    name = f"high_density_ele_{i}_injector",
+    species = "electrons",
     box_side = "xmin",
     mean_velocity = [particle_velocity, 0.0, 0.0],
     number_density = 0.15,
-    time_envelope = tgaussian(start=0, duration=injection_duration, order=2)
-)
-
-# Medium density injection for the next 1/3 of travel time
-ParticleInjector(
-    name = "medium_density_injector",
-    species = "ions",
-    box_side = "xmin",
-    mean_velocity = [particle_velocity, 0.0, 0.0],
-    number_density = 0.1,
-    time_envelope = tgaussian(start=injection_duration, duration=injection_duration, order=2)
-)
-
-# Low density injection for the final 1/2 of travel time
-ParticleInjector(
-    name = "low_density_injector",
-    species = "ions",
-    box_side = "xmin",
-    mean_velocity = [particle_velocity, 0.0, 0.0],
-    number_density = 0.05,
-    time_envelope = tgaussian(start=injection_duration*2, duration=injection_duration, order=2)
+    time_envelope = tgaussian(start=i*injection_duration, duration=injection_duration, order=2)
 )
 
 # Diagnostics
