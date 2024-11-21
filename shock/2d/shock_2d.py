@@ -6,7 +6,7 @@ L_x = 40.0  # Length of the simulation box in x-direction
 L_y = 20.0  # Length of the simulation box in y-direction
 nx = 400    # Number of cells in x-direction
 ny = 200    # Number of cells in y-direction
-timestep = 0.1  # Timestep, in units of the plasma frequency
+timestep = 0.05  # Timestep, in units of the plasma frequency
 num_shocks = 6  # Number of shocks to inject
 
 # Particle and Injector Timing
