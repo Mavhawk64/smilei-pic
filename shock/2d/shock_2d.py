@@ -6,7 +6,7 @@ L_x = 40.0  # Length of the simulation box in x-direction
 L_y = 20.0  # Length of the simulation box in y-direction
 nx = 400    # Number of cells in x-direction
 ny = 200    # Number of cells in y-direction
-timestep = 0.05  # Timestep, in units of the plasma frequency
+timestep = 0.1  # Timestep, in units of the plasma frequency
 num_shocks = 6  # Number of shocks to inject
 
 # Particle and Injector Timing
@@ -78,15 +78,17 @@ DiagFields(
     fields = ["Ex", "Ey", "Ez", "Bx", "By", "Bz"]
 )
 
+# Track particle positions and momenta for electrons
 DiagTrackParticles(
     species = "electrons",
-    attributes = ["x", "y"],
+    attributes = ["x", "y", "px", "py"],  # Added px and py for momenta tracking
     every = 100
 )
 
+# Track particle positions and momenta for ions
 DiagTrackParticles(
     species = "ions",
-    attributes = ["x", "y"],
+    attributes = ["x", "y", "px", "py"],  # Added px and py for momenta tracking
     every = 100
 )
 
