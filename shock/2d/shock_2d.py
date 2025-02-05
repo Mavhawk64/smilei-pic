@@ -6,13 +6,15 @@ L_x = 40.0  # Length of the simulation box in x-direction
 L_y = 20.0  # Length of the simulation box in y-direction
 nx = 400  # Number of cells in x-direction
 ny = 200  # Number of cells in y-direction
-timestep = 0.05  # Timestep, in units of the plasma frequency
+timestep = 0.01  # Timestep, in units of the plasma frequency
 num_shocks = 6  # Number of shocks to inject
 
 # Particle and Injector Timing
 particle_velocity = 0.1  # Speed of injected particles in x-direction
 travel_time = L_x / particle_velocity
 injection_duration = 1 / 3 * travel_time
+
+simulation_time = travel_time * 6
 
 # Main Simulation Block
 Main(
@@ -22,7 +24,7 @@ Main(
     grid_length=[L_x, L_y],
     number_of_patches=[4, 4],
     timestep=timestep,
-    simulation_time=travel_time * 2,  # Run for the travel time of the box
+    simulation_time=simulation_time,  # Run for the travel time of the box
     EM_boundary_conditions=[["silver-muller", "reflective"], ["periodic", "periodic"]],
     random_seed=0,
 )
