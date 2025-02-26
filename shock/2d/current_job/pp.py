@@ -10,6 +10,20 @@ from scipy.fft import fftfreq, fftn
 
 gc.collect()
 
+
+def save_animation(animation: FuncAnimation, filename: str, fps: int = 10):
+    try:
+        animation.save(filename, writer="ffmpeg", fps=fps)
+        print(f"Animation saved as {filename}")
+    except Exception as e:
+        print(f"Failed to save {filename} as mp4 due to: {e}")
+        print("Falling back to GIF format...")
+        gif_filename = filename.replace(".mp4", ".gif")
+        animation.save(gif_filename, writer="pillow", fps=fps)
+        print(f"Animation saved as {gif_filename}")
+        print("Please install ffmpeg to save animations in mp4 format.")
+
+
 # Open the simulation results
 S = happi.Open(os.path.dirname(os.path.realpath(__file__)))
 
@@ -114,7 +128,7 @@ particle_animation = FuncAnimation(
 particle_output_file = os.path.join(
     os.path.dirname(os.path.realpath(__file__)), "electron_ion_positions_xy.mp4"
 )
-particle_animation.save(particle_output_file, writer="ffmpeg", fps=10)
+save_animation(particle_animation, particle_output_file, fps=10)
 print(f"Particle positions animation saved as {particle_output_file}")
 
 # ==============================
@@ -156,7 +170,7 @@ field_animation = FuncAnimation(
 field_output_file = os.path.join(
     os.path.dirname(os.path.realpath(__file__)), "magnetic_field_magnitude.mp4"
 )
-field_animation.save(field_output_file, writer="ffmpeg", fps=10)
+save_animation(field_animation, field_output_file, fps=10)
 print(f"Magnetic field magnitude animation saved as {field_output_file}")
 
 # ==============================
@@ -193,7 +207,7 @@ ps_animation = FuncAnimation(fig_ps, update_ps, frames=len(timesteps), blit=True
 ps_output_file = os.path.join(
     os.path.dirname(os.path.realpath(__file__)), "power_spectrum.mp4"
 )
-ps_animation.save(ps_output_file, writer="ffmpeg", fps=10)
+save_animation(ps_animation, ps_output_file, fps=10)
 print(f"Power Spectrum animation saved as {ps_output_file}")
 
 # ==============================
@@ -231,5 +245,5 @@ temp_animation = FuncAnimation(fig_temp, update_temp, frames=len(timesteps), bli
 temp_output_file = os.path.join(
     os.path.dirname(os.path.realpath(__file__)), "temperature_evolution.mp4"
 )
-temp_animation.save(temp_output_file, writer="ffmpeg", fps=10)
+save_animation(temp_animation, temp_output_file, fps=10)
 print(f"Temperature animation saved as {temp_output_file}")

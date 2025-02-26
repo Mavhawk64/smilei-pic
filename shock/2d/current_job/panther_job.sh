@@ -6,8 +6,8 @@
 #SBATCH --mem-per-cpu=2GB  # More memory per core
 #SBATCH --time=7-00:00:00  # 7 days
 #SBATCH --partition=long
-#SBATCH --error=/home1/mberkland2023/repos/smilei-pic/shock/2d/current_job/output_56GB_2-12-2025/error/testjob.%J.err
-#SBATCH --output=/home1/mberkland2023/repos/smilei-pic/shock/2d/current_job/output_56GB_2-12-2025/output/testjob.%J.out
+#SBATCH --error=/home1/mberkland2023/repos/smilei-pic/shock/2d/current_job/output_56GB_2-19-2025/error/testjob.%J.err
+#SBATCH --output=/home1/mberkland2023/repos/smilei-pic/shock/2d/current_job/output_56GB_2-19-2025/output/testjob.%J.out
 
 # Only load MPICH if needed
 # module load mpich  # Remove this if ./run2d.sh does it

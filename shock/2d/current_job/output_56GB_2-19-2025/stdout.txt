@@ -1,0 +1,2 @@
+Output directory: output_56GB_2-19-2025
+Submitted batch job 58167

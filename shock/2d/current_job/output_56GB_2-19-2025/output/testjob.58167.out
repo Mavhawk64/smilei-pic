@@ -1,0 +1,374 @@
+Starting job at: Wed 19 Feb 2025 09:02:57 AM EST
+Running on hosts: node[01-08]
+Running on 8 nodes.
+Running on 32 processors.
+Current working directory is /home1/mberkland2023/repos/smilei-pic/shock/2d/current_job
+                    _            _
+  ___           _  | |        _  \ \   Version : 5.1-34-g60be16288-master
+ / __|  _ __   (_) | |  ___  (_)  | |   
+ \__ \ | '  \   _  | | / -_)  _   | |
+ |___/ |_|_|_| |_| |_| \___| |_|  | |  
+                                 /_/    
+ 
+ 
+
+ Reading the simulation parameters
+ -------------------------------------------------------------------------------
+ HDF5 version 1.10.11
+ Python version 3.11.10
+	 Parsing pyinit.py
+	 Parsing 5.1-34-g60be16288-master
+	 Parsing pyprofiles.py
+	 Parsing shock_2d.py
+	 Parsing pycontrol.py
+	 Check for function preprocess()
+	 python preprocess function does not exist
+	 Calling python _smilei_check
+	 Calling python _prepare_checkpoint_dir
+	 Calling python _keep_python_running() :
+[1;36mCAREFUL: Patches distribution: hilbertian
+[0m
+	 Smilei will run on CPU devices
+[;33m
+[WARNING](0) src/Params/Params.cpp:1262 (compute) Particles cluster width `cluster_width` set to : 50[0m
+ 
+
+ Geometry: 2Dcartesian
+ -------------------------------------------------------------------------------
+	 Interpolation order : 2
+	 Maxwell solver : Yee
+	 simulation duration = 2400.000000,   total number of iterations = 240000
+	 timestep = 0.010000 = 0.141421 x CFL,   time resolution = 100.000000
+	 Grid length: 40, 20
+	 Cell length: 0.1, 0.1, 0
+	 Number of cells: 400, 200
+	 Spatial resolution: 10, 10
+ 
+
+ Electromagnetic boundary conditions
+ -------------------------------------------------------------------------------
+	 xmin silver-muller, absorbing vector [1, 0]
+	 xmax reflective
+	 ymin periodic
+	 ymax periodic
+ 
+
+ Vectorization: 
+ -------------------------------------------------------------------------------
+	 Mode: off
+	 Calling python writeInfo
+ 
+
+ Initializing MPI
+ -------------------------------------------------------------------------------
+	 applied topology for periodic BCs in y-direction
+	 MPI_THREAD_MULTIPLE enabled
+	 Number of MPI processes: 8
+	 Number of threads per MPI process : 1
+	 OpenMP task parallelization not activated
+ 
+	 Number of patches: 4 x 4
+	 Number of cells in one patch: 100 x 50
+	 Dynamic load balancing: never
+ 
+
+ Initializing the restart environment
+ -------------------------------------------------------------------------------
+ 
+ 
+ 
+
+ Initializing species
+ -------------------------------------------------------------------------------
+	 
+	 Creating Species #0: electrons
+		 > Pusher: boris
+		 > Boundary conditions: remove reflective periodic periodic
+		 > Density profile: 2D built-in profile `constant` (value: 0.100000)
+	 
+	 Creating Species #1: ions
+		 > Pusher: boris
+		 > Boundary conditions: remove reflective periodic periodic
+		 > Density profile: 2D built-in profile `constant` (value: 0.100000)
+ 
+
+ Initializing particle injectors
+ -------------------------------------------------------------------------------
+	 
+	 Creating Injector: high_density_ion_0_injector
+		 > Associated species: ions (of index 1)
+		 > Injection from from the side: xmin
+		 > Position initialization defined as the species.
+		 > Position initialization: random
+		 > Momentum initialization defined as the species.
+		 > Momentum initialization: cold
+		 > Mean velocity redefined: 2D built-in profile `constant` (value: 0.100000)
+		 > Temperature defined as the species.
+		 > Time profile: 1D built-in profile `tgaussian` (start: 0.000000, duration: 133.333333, sigma: 712.441996, center: 66.666667, order: 2.000000)
+		 > Particles per cell defined as the associated species: 2D built-in profile `constant` (value: 2.000000).
+	 
+	 Creating Injector: high_density_ele_0_injector
+		 > Associated species: electrons (of index 0)
+		 > Injection from from the side: xmin
+		 > Position initialization defined as the species.
+		 > Position initialization: random
+		 > Momentum initialization defined as the species.
+		 > Momentum initialization: cold
+		 > Mean velocity redefined: 2D built-in profile `constant` (value: 0.100000)
+		 > Temperature defined as the species.
+		 > Time profile: 1D built-in profile `tgaussian` (start: 0.000000, duration: 133.333333, sigma: 712.441996, center: 66.666667, order: 2.000000)
+		 > Particles per cell defined as the associated species: 2D built-in profile `constant` (value: 2.000000).
+	 
+	 Creating Injector: high_density_ion_1_injector
+		 > Associated species: ions (of index 1)
+		 > Injection from from the side: xmin
+		 > Position initialization defined as the species.
+		 > Position initialization: random
+		 > Momentum initialization defined as the species.
+		 > Momentum initialization: cold
+		 > Mean velocity redefined: 2D built-in profile `constant` (value: 0.100000)
+		 > Temperature defined as the species.
+		 > Time profile: 1D built-in profile `tgaussian` (start: 133.333333, duration: 133.333333, sigma: 712.441996, center: 200.000000, order: 2.000000)
+		 > Particles per cell defined as the associated species: 2D built-in profile `constant` (value: 2.000000).
+	 
+	 Creating Injector: high_density_ele_1_injector
+		 > Associated species: electrons (of index 0)
+		 > Injection from from the side: xmin
+		 > Position initialization defined as the species.
+		 > Position initialization: random
+		 > Momentum initialization defined as the species.
+		 > Momentum initialization: cold
+		 > Mean velocity redefined: 2D built-in profile `constant` (value: 0.100000)
+		 > Temperature defined as the species.
+		 > Time profile: 1D built-in profile `tgaussian` (start: 133.333333, duration: 133.333333, sigma: 712.441996, center: 200.000000, order: 2.000000)
+		 > Particles per cell defined as the associated species: 2D built-in profile `constant` (value: 2.000000).
+	 
+	 Creating Injector: high_density_ion_2_injector
+		 > Associated species: ions (of index 1)
+		 > Injection from from the side: xmin
+		 > Position initialization defined as the species.
+		 > Position initialization: random
+		 > Momentum initialization defined as the species.
+		 > Momentum initialization: cold
+		 > Mean velocity redefined: 2D built-in profile `constant` (value: 0.100000)
+		 > Temperature defined as the species.
+		 > Time profile: 1D built-in profile `tgaussian` (start: 266.666667, duration: 133.333333, sigma: 712.441996, center: 333.333333, order: 2.000000)
+		 > Particles per cell defined as the associated species: 2D built-in profile `constant` (value: 2.000000).
+	 
+	 Creating Injector: high_density_ele_2_injector
+		 > Associated species: electrons (of index 0)
+		 > Injection from from the side: xmin
+		 > Position initialization defined as the species.
+		 > Position initialization: random
+		 > Momentum initialization defined as the species.
+		 > Momentum initialization: cold
+		 > Mean velocity redefined: 2D built-in profile `constant` (value: 0.100000)
+		 > Temperature defined as the species.
+		 > Time profile: 1D built-in profile `tgaussian` (start: 266.666667, duration: 133.333333, sigma: 712.441996, center: 333.333333, order: 2.000000)
+		 > Particles per cell defined as the associated species: 2D built-in profile `constant` (value: 2.000000).
+	 
+	 Creating Injector: high_density_ion_3_injector
+		 > Associated species: ions (of index 1)
+		 > Injection from from the side: xmin
+		 > Position initialization defined as the species.
+		 > Position initialization: random
+		 > Momentum initialization defined as the species.
+		 > Momentum initialization: cold
+		 > Mean velocity redefined: 2D built-in profile `constant` (value: 0.100000)
+		 > Temperature defined as the species.
+		 > Time profile: 1D built-in profile `tgaussian` (start: 400.000000, duration: 133.333333, sigma: 712.441996, center: 466.666667, order: 2.000000)
+		 > Particles per cell defined as the associated species: 2D built-in profile `constant` (value: 2.000000).
+	 
+	 Creating Injector: high_density_ele_3_injector
+		 > Associated species: electrons (of index 0)
+		 > Injection from from the side: xmin
+		 > Position initialization defined as the species.
+		 > Position initialization: random
+		 > Momentum initialization defined as the species.
+		 > Momentum initialization: cold
+		 > Mean velocity redefined: 2D built-in profile `constant` (value: 0.100000)
+		 > Temperature defined as the species.
+		 > Time profile: 1D built-in profile `tgaussian` (start: 400.000000, duration: 133.333333, sigma: 712.441996, center: 466.666667, order: 2.000000)
+		 > Particles per cell defined as the associated species: 2D built-in profile `constant` (value: 2.000000).
+	 
+	 Creating Injector: high_density_ion_4_injector
+		 > Associated species: ions (of index 1)
+		 > Injection from from the side: xmin
+		 > Position initialization defined as the species.
+		 > Position initialization: random
+		 > Momentum initialization defined as the species.
+		 > Momentum initialization: cold
+		 > Mean velocity redefined: 2D built-in profile `constant` (value: 0.100000)
+		 > Temperature defined as the species.
+		 > Time profile: 1D built-in profile `tgaussian` (start: 533.333333, duration: 133.333333, sigma: 712.441996, center: 600.000000, order: 2.000000)
+		 > Particles per cell defined as the associated species: 2D built-in profile `constant` (value: 2.000000).
+	 
+	 Creating Injector: high_density_ele_4_injector
+		 > Associated species: electrons (of index 0)
+		 > Injection from from the side: xmin
+		 > Position initialization defined as the species.
+		 > Position initialization: random
+		 > Momentum initialization defined as the species.
+		 > Momentum initialization: cold
+		 > Mean velocity redefined: 2D built-in profile `constant` (value: 0.100000)
+		 > Temperature defined as the species.
+		 > Time profile: 1D built-in profile `tgaussian` (start: 533.333333, duration: 133.333333, sigma: 712.441996, center: 600.000000, order: 2.000000)
+		 > Particles per cell defined as the associated species: 2D built-in profile `constant` (value: 2.000000).
+	 
+	 Creating Injector: high_density_ion_5_injector
+		 > Associated species: ions (of index 1)
+		 > Injection from from the side: xmin
+		 > Position initialization defined as the species.
+		 > Position initialization: random
+		 > Momentum initialization defined as the species.
+		 > Momentum initialization: cold
+		 > Mean velocity redefined: 2D built-in profile `constant` (value: 0.100000)
+		 > Temperature defined as the species.
+		 > Time profile: 1D built-in profile `tgaussian` (start: 666.666667, duration: 133.333333, sigma: 712.441996, center: 733.333333, order: 2.000000)
+		 > Particles per cell defined as the associated species: 2D built-in profile `constant` (value: 2.000000).
+	 
+	 Creating Injector: high_density_ele_5_injector
+		 > Associated species: electrons (of index 0)
+		 > Injection from from the side: xmin
+		 > Position initialization defined as the species.
+		 > Position initialization: random
+		 > Momentum initialization defined as the species.
+		 > Momentum initialization: cold
+		 > Mean velocity redefined: 2D built-in profile `constant` (value: 0.100000)
+		 > Temperature defined as the species.
+		 > Time profile: 1D built-in profile `tgaussian` (start: 666.666667, duration: 133.333333, sigma: 712.441996, center: 733.333333, order: 2.000000)
+		 > Particles per cell defined as the associated species: 2D built-in profile `constant` (value: 2.000000).
+ 
+
+ Initializing Patches
+ -------------------------------------------------------------------------------
+	 First patch created
+		 Approximately 10% of patches created
+	 All patches created
+ 
+
+ Creating Diagnostics, antennas, and external fields
+ -------------------------------------------------------------------------------
+	 Created ParticleBinning #0: species electrons,ions
+		 Axis x from 0 to 40 in 400 steps
+		 Axis y from 0 to 20 in 200 steps
+	 Diagnostic Fields #0  :
+		 Ex Ey Ez Bx By Bz 
+	 Created DiagTrackParticles #0: species electrons
+		 ,x,y,px,py
+	 Created DiagTrackParticles #1: species ions
+		 ,x,y,px,py
+ 
+
+ Finalize MPI environment
+ -------------------------------------------------------------------------------
+	 Done creating diagnostics, antennas, and external fields
+ 
+
+ Minimum memory consumption (does not include all temporary buffers)
+ -------------------------------------------------------------------------------
+              Particles: Master 2 MB;   Max 2 MB;   Global 0.0173 GB
+                 Fields: Master 1 MB;   Max 1 MB;   Global 0.00895 GB
+            scalars.txt: Master 0 MB;   Max 0 MB;   Global 0 GB
+    ParticleBinning0.h5: Master 0 MB;   Max 0 MB;   Global 0.00477 GB
+             Fields0.h5: Master 0 MB;   Max 0 MB;   Global 0 GB
+ TrackParticlesDisordered_electrons.h5: Master 0 MB;   Max 0 MB;   Global 0 GB
+ TrackParticlesDisordered_ions.h5: Master 0 MB;   Max 0 MB;   Global 0 GB
+ 
+
+ Initial fields setup
+ -------------------------------------------------------------------------------
+	 Solving Poisson at time t = 0
+ 
+
+ Initializing E field through Poisson solver
+ -------------------------------------------------------------------------------
+	 Poisson solver converged at iteration: 751, relative err is ctrl = 0.957554 x 1e-14
+	 Poisson equation solved. Maximum err = 0.000000 at i= -1
+ Time in Poisson : 104.016115
+	 Applying external fields at time t = 0
+	 Applying prescribed fields at time t = 0
+	 Applying antennas at time t = 0
+ 
+
+ Open files & initialize diagnostics
+ -------------------------------------------------------------------------------
+ 
+
+ Running diags at time t = 0
+ -------------------------------------------------------------------------------
+ 
+
+ Species creation summary
+ -------------------------------------------------------------------------------
+		 Species 0 (electrons) created with 160000 particles
+		 Species 1 (ions) created with 160000 particles
+ 
+
+ Expected disk usage (approximate)
+ -------------------------------------------------------------------------------
+	 WARNING: disk usage by non-uniform particles maybe strongly underestimated,
+	    especially when particles are created at runtime (ionization, pair generation, etc.)
+	 
+	 Expected disk usage for diagnostics:
+		 File Fields0.h5: 8.67 G
+		 File TrackParticlesDisordered_electrons.h5: 22.91 G
+		 File TrackParticlesDisordered_ions.h5: 22.91 G
+		 File scalars.txt: 1.83 M
+		 File ParticleBinning0.h5: 1.43 G
+	 Total disk usage for diagnostics: 55.93 G
+	 
+ 
+
+ Keeping or closing the python runtime environment
+ -------------------------------------------------------------------------------
+	 Checking for cleanup() function:
+	 python cleanup function does not exist
+	 Closing Python
+ 
+
+ Time-Loop started: number of time-steps n_time = 240000
+ -------------------------------------------------------------------------------
+[1;36mCAREFUL: The following `push time` assumes a global number of 8 cores (hyperthreading is unknown)
+[0m
+        timestep       sim time   cpu time [s]   (    diff [s] )   push time [ns]
+    24000/240000     2.4000e+02     7.3387e+03   (  7.3387e+03 )            4790 
+    48000/240000     4.8000e+02     1.5910e+04   (  8.5713e+03 )            4068 
+    72000/240000     7.2000e+02     2.5842e+04   (  9.9323e+03 )            3743 
+    96000/240000     9.6000e+02     3.6716e+04   (  1.0873e+04 )            4216 
+   120000/240000     1.2000e+03     4.6708e+04   (  9.9928e+03 )            4793 
+   144000/240000     1.4400e+03     5.6004e+04   (  9.2954e+03 )            5623 
+   168000/240000     1.6800e+03     6.4220e+04   (  8.2161e+03 )            5950 
+   192000/240000     1.9200e+03     7.1925e+04   (  7.7047e+03 )            5654 
+   216000/240000     2.1600e+03     7.9609e+04   (  7.6844e+03 )            5707 
+   240000/240000     2.4000e+03     8.7301e+04   (  7.6915e+03 )            5785 
+ 
+
+ End time loop, time dual = 2.4000e+03
+ -------------------------------------------------------------------------------
+ 
+
+ Time profiling : (print time > 0.001%)
+ -------------------------------------------------------------------------------
+ Time_in_time_loop	8.7301e+04	9.9994e+01% coverage
+ 	           Particles	2.458448e+04	2.8e+01%
+ 	             Maxwell	4.608497e+01	    <1%
+ 	         Diagnostics	2.766818e+04	3.2e+01%
+ 	      Sync Particles	2.167776e+04	2.5e+01%
+ 	      Sync Densities	1.316652e+04	1.5e+01%
+ 	      Part Injection	1.090856e+02	    <1%
+ 
+	 Printed times are averaged per MPI process
+ 		 See advanced metrics in profil.txt
+ 
+	Diagnostics profile :
+ 		         scalars.txt	4.4e+01
+ 		 ParticleBinning0.h5	4.8e+02
+ 		          Fields0.h5	1.1e+04
+ 		TrackParticlesDisordered_electrons.h5	8.1e+03
+ 		TrackParticlesDisordered_ions.h5	8.0e+03
+ 
+
+ END
+ -------------------------------------------------------------------------------
+Hi mom!
