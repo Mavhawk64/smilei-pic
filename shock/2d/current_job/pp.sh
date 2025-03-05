@@ -16,8 +16,6 @@ echo "Running on $SLURM_NPROCS processors."
 echo "Current working directory is $(pwd)"
 
 # Run the simulation
-# Run the Smilei simulation with mpirun as root
-num_procs=8  # Set the number of processes here
-OMPI_ALLOW_RUN_AS_ROOT=1 OMPI_ALLOW_RUN_AS_ROOT_CONFIRM=1 mpirun -np $num_procs python pp.py
+python pp.py
 
 echo "Done with Post Processing!"

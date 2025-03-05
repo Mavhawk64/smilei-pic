@@ -1,0 +1,169 @@
+Traceback (most recent call last):
+  File "/home1/mberkland2023/repos/smilei-pic/shock/2d/current_job/output_56GB_2-19-2025/pp.py", line 31, in <module>
+    tracked_diag = S.TrackParticles("electrons", axes=["x", "y", "px", "py"])
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home1/mberkland2023/repos/Smilei/happi/_Factories.py", line 586, in __call__
+Traceback (most recent call last):
+  File "/home1/mberkland2023/repos/smilei-pic/shock/2d/current_job/output_56GB_2-19-2025/pp.py", line 31, in <module>
+    tracked_diag = S.TrackParticles("electrons", axes=["x", "y", "px", "py"])
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home1/mberkland2023/repos/Smilei/happi/_Factories.py", line 586, in __call__
+Traceback (most recent call last):
+  File "/home1/mberkland2023/repos/smilei-pic/shock/2d/current_job/output_56GB_2-19-2025/pp.py", line 31, in <module>
+    tracked_diag = S.TrackParticles("electrons", axes=["x", "y", "px", "py"])
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home1/mberkland2023/repos/Smilei/happi/_Factories.py", line 586, in __call__
+Traceback (most recent call last):
+  File "/home1/mberkland2023/repos/smilei-pic/shock/2d/current_job/output_56GB_2-19-2025/pp.py", line 31, in <module>
+    tracked_diag = S.TrackParticles("electrons", axes=["x", "y", "px", "py"])
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home1/mberkland2023/repos/Smilei/happi/_Factories.py", line 586, in __call__
+Traceback (most recent call last):
+  File "/home1/mberkland2023/repos/smilei-pic/shock/2d/current_job/output_56GB_2-19-2025/pp.py", line 31, in <module>
+Traceback (most recent call last):
+  File "/home1/mberkland2023/repos/smilei-pic/shock/2d/current_job/output_56GB_2-19-2025/pp.py", line 31, in <module>
+    tracked_diag = S.TrackParticles("electrons", axes=["x", "y", "px", "py"])
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home1/mberkland2023/repos/Smilei/happi/_Factories.py", line 586, in __call__
+    tracked_diag = S.TrackParticles("electrons", axes=["x", "y", "px", "py"])
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home1/mberkland2023/repos/Smilei/happi/_Factories.py", line 586, in __call__
+    return TrackParticles(self._simulation, *args, **kwargs)
+    return TrackParticles(self._simulation, *args, **kwargs)
+    return TrackParticles(self._simulation, *args, **kwargs)
+    return TrackParticles(self._simulation, *args, **kwargs)
+    return TrackParticles(self._simulation, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home1/mberkland2023/repos/Smilei/happi/_Diagnostics/Diagnostic.py", line 73, in __init__
+  File "/home1/mberkland2023/repos/Smilei/happi/_Diagnostics/Diagnostic.py", line 73, in __init__
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home1/mberkland2023/repos/Smilei/happi/_Diagnostics/Diagnostic.py", line 73, in __init__
+  File "/home1/mberkland2023/repos/Smilei/happi/_Diagnostics/Diagnostic.py", line 73, in __init__
+    return TrackParticles(self._simulation, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home1/mberkland2023/repos/Smilei/happi/_Diagnostics/Diagnostic.py", line 73, in __init__
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home1/mberkland2023/repos/Smilei/happi/_Diagnostics/Diagnostic.py", line 73, in __init__
+    remaining_kwargs = self._init(*args, **kwargs)
+    remaining_kwargs = self._init(*args, **kwargs)
+    remaining_kwargs = self._init(*args, **kwargs)
+    remaining_kwargs = self._init(*args, **kwargs)
+    remaining_kwargs = self._init(*args, **kwargs)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home1/mberkland2023/repos/Smilei/happi/_Diagnostics/TrackParticles.py", line 119, in _init
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home1/mberkland2023/repos/Smilei/happi/_Diagnostics/TrackParticles.py", line 119, in _init
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home1/mberkland2023/repos/Smilei/happi/_Diagnostics/TrackParticles.py", line 119, in _init
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home1/mberkland2023/repos/Smilei/happi/_Diagnostics/TrackParticles.py", line 119, in _init
+  File "/home1/mberkland2023/repos/Smilei/happi/_Diagnostics/TrackParticles.py", line 119, in _init
+    remaining_kwargs = self._init(*args, **kwargs)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home1/mberkland2023/repos/Smilei/happi/_Diagnostics/TrackParticles.py", line 81, in _init
+    self._orderFiles(orderedfile, chunksize, sort)
+    self._orderFiles(orderedfile, chunksize, sort)
+    self._orderFiles(orderedfile, chunksize, sort)
+    needsOrdering = self._needsOrdering(orderedfile)
+    self._orderFiles(orderedfile, chunksize, sort)
+  File "/home1/mberkland2023/repos/Smilei/happi/_Diagnostics/TrackParticles.py", line 393, in _orderFiles
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home1/mberkland2023/repos/Smilei/happi/_Diagnostics/TrackParticles.py", line 194, in _needsOrdering
+  File "/home1/mberkland2023/repos/Smilei/happi/_Diagnostics/TrackParticles.py", line 393, in _orderFiles
+  File "/home1/mberkland2023/repos/Smilei/happi/_Diagnostics/TrackParticles.py", line 393, in _orderFiles
+  File "/home1/mberkland2023/repos/Smilei/happi/_Diagnostics/TrackParticles.py", line 393, in _orderFiles
+    self._orderFiles(orderedfile, chunksize, sort)
+  File "/home1/mberkland2023/repos/Smilei/happi/_Diagnostics/TrackParticles.py", line 393, in _orderFiles
+    f.close()
+    ^
+UnboundLocalError: cannot access local variable 'f' where it is not associated with a value
+    f0 = self._h5py.File(fileOrdered, "r+")
+    f0 = self._h5py.File(fileOrdered, "r+")
+    f0 = self._h5py.File(fileOrdered, "r+")
+    f0 = self._h5py.File(fileOrdered, "r+")
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home1/mberkland2023/.conda/envs/smilei/lib/python3.11/site-packages/h5py/_hl/files.py", line 562, in __init__
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home1/mberkland2023/.conda/envs/smilei/lib/python3.11/site-packages/h5py/_hl/files.py", line 562, in __init__
+    f0 = self._h5py.File(fileOrdered, "r+")
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home1/mberkland2023/.conda/envs/smilei/lib/python3.11/site-packages/h5py/_hl/files.py", line 562, in __init__
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home1/mberkland2023/.conda/envs/smilei/lib/python3.11/site-packages/h5py/_hl/files.py", line 562, in __init__
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home1/mberkland2023/.conda/envs/smilei/lib/python3.11/site-packages/h5py/_hl/files.py", line 562, in __init__
+    fid = make_fid(name, mode, userblock_size, fapl, fcpl, swmr=swmr)
+    fid = make_fid(name, mode, userblock_size, fapl, fcpl, swmr=swmr)
+    fid = make_fid(name, mode, userblock_size, fapl, fcpl, swmr=swmr)
+    fid = make_fid(name, mode, userblock_size, fapl, fcpl, swmr=swmr)
+    fid = make_fid(name, mode, userblock_size, fapl, fcpl, swmr=swmr)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home1/mberkland2023/.conda/envs/smilei/lib/python3.11/site-packages/h5py/_hl/files.py", line 237, in make_fid
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home1/mberkland2023/.conda/envs/smilei/lib/python3.11/site-packages/h5py/_hl/files.py", line 237, in make_fid
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home1/mberkland2023/.conda/envs/smilei/lib/python3.11/site-packages/h5py/_hl/files.py", line 237, in make_fid
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home1/mberkland2023/.conda/envs/smilei/lib/python3.11/site-packages/h5py/_hl/files.py", line 237, in make_fid
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home1/mberkland2023/.conda/envs/smilei/lib/python3.11/site-packages/h5py/_hl/files.py", line 237, in make_fid
+    fid = h5f.open(name, h5f.ACC_RDWR, fapl=fapl)
+    fid = h5f.open(name, h5f.ACC_RDWR, fapl=fapl)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+    fid = h5f.open(name, h5f.ACC_RDWR, fapl=fapl)
+    fid = h5f.open(name, h5f.ACC_RDWR, fapl=fapl)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+    fid = h5f.open(name, h5f.ACC_RDWR, fapl=fapl)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 102, in h5py.h5f.open
+  File "h5py/h5f.pyx", line 102, in h5py.h5f.open
+  File "h5py/h5f.pyx", line 102, in h5py.h5f.open
+  File "h5py/h5f.pyx", line 102, in h5py.h5f.open
+  File "h5py/h5f.pyx", line 102, in h5py.h5f.open
+BlockingIOError: [Errno 11] Unable to open file (unable to lock file, errno = 11, error message = 'Resource temporarily unavailable')
+BlockingIOError: [Errno 11] Unable to open file (unable to lock file, errno = 11, error message = 'Resource temporarily unavailable')
+BlockingIOError: [Errno 11] Unable to open file (unable to lock file, errno = 11, error message = 'Resource temporarily unavailable')
+BlockingIOError: [Errno 11] Unable to open file (unable to lock file, errno = 11, error message = 'Resource temporarily unavailable')
+BlockingIOError: [Errno 11] Unable to open file (unable to lock file, errno = 11, error message = 'Resource temporarily unavailable')
+Traceback (most recent call last):
+  File "/home1/mberkland2023/repos/smilei-pic/shock/2d/current_job/output_56GB_2-19-2025/pp.py", line 32, in <module>
+    ion_tracked_diag = S.TrackParticles("ions", axes=["x", "y", "px", "py"])
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home1/mberkland2023/repos/Smilei/happi/_Factories.py", line 586, in __call__
+    return TrackParticles(self._simulation, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home1/mberkland2023/repos/Smilei/happi/_Diagnostics/Diagnostic.py", line 73, in __init__
+    remaining_kwargs = self._init(*args, **kwargs)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home1/mberkland2023/repos/Smilei/happi/_Diagnostics/TrackParticles.py", line 119, in _init
+    self._orderFiles(orderedfile, chunksize, sort)
+  File "/home1/mberkland2023/repos/Smilei/happi/_Diagnostics/TrackParticles.py", line 393, in _orderFiles
+    f0 = self._h5py.File(fileOrdered, "r+")
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home1/mberkland2023/.conda/envs/smilei/lib/python3.11/site-packages/h5py/_hl/files.py", line 562, in __init__
+    fid = make_fid(name, mode, userblock_size, fapl, fcpl, swmr=swmr)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home1/mberkland2023/.conda/envs/smilei/lib/python3.11/site-packages/h5py/_hl/files.py", line 237, in make_fid
+    fid = h5f.open(name, h5f.ACC_RDWR, fapl=fapl)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 102, in h5py.h5f.open
+BlockingIOError: [Errno 11] Unable to open file (unable to lock file, errno = 11, error message = 'Resource temporarily unavailable')
+slurmstepd-node03: error: Detected 1 oom-kill event(s) in step 60413.0 cgroup. Some of your processes may have been killed by the cgroup out-of-memory handler.
+srun: error: node03: task 0: Out Of Memory
