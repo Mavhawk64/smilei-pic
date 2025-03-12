@@ -7,7 +7,7 @@ L_y = 20.0  # Length of the simulation box in y-direction
 nx = 400  # Number of cells in x-direction
 ny = 200  # Number of cells in y-direction
 timestep = 0.01  # Timestep, in units of the plasma frequency
-num_shocks = 6  # Number of shocks to inject
+num_shocks = 1  # Number of shocks to inject
 
 # Particle and Injector Timing
 particle_velocity = 0.1  # Speed of injected particles in x-direction
@@ -37,7 +37,7 @@ Species(
     particles_per_cell=2,
     mass=1.0,
     charge=-1.0,
-    number_density=0.1,
+    number_density=1,
     boundary_conditions=[["remove", "reflective"], ["periodic", "periodic"]],
 )
 
@@ -46,9 +46,9 @@ Species(
     position_initialization="random",
     momentum_initialization="cold",
     particles_per_cell=2,
-    mass=1836.0,
+    mass=1.0,
     charge=1.0,
-    number_density=0.1,
+    number_density=1,
     boundary_conditions=[["remove", "reflective"], ["periodic", "periodic"]],
 )
 
@@ -59,21 +59,21 @@ for i in range(0, num_shocks):
         species="ions",
         box_side="xmin",
         mean_velocity=[particle_velocity, 0.0, 0.0],
-        number_density=0.05,
+        number_density=2.0,
         time_envelope=tgaussian(
             start=i * injection_duration, duration=injection_duration, order=2
         ),
     )
-    ParticleInjector(
-        name=f"high_density_ele_{i}_injector",
-        species="electrons",
-        box_side="xmin",
-        mean_velocity=[particle_velocity, 0.0, 0.0],
-        number_density=0.05,
-        time_envelope=tgaussian(
-            start=i * injection_duration, duration=injection_duration, order=2
-        ),
-    )
+    # ParticleInjector(
+    #     name=f"high_density_ele_{i}_injector",
+    #     species="electrons",
+    #     box_side="xmin",
+    #     mean_velocity=[particle_velocity, 0.0, 0.0],
+    #     number_density=0.05,
+    #     time_envelope=tgaussian(
+    #         start=i * injection_duration, duration=injection_duration, order=2
+    #     ),
+    # )
 
 # Diagnostics
 DiagScalar(every=100)  # Diagnostic for tracking scalar values
@@ -82,15 +82,15 @@ DiagScalar(every=100)  # Diagnostic for tracking scalar values
 DiagFields(every=100, fields=["Ex", "Ey", "Ez", "Bx", "By", "Bz"])
 
 # Track particle positions and momenta for electrons
-DiagTrackParticles(species="electrons", attributes=["x", "y", "px", "py"], every=100)
+# DiagTrackParticles(species="electrons", attributes=["x", "y", "px", "py"], every=100)
 
 # Track particle positions and momenta for ions
-DiagTrackParticles(species="ions", attributes=["x", "y", "px", "py"], every=100)
+# DiagTrackParticles(species="ions", attributes=["x", "y", "px", "py"], every=100)
 
 # Particle diagnostic for observing particle distribution over time
-DiagParticleBinning(
-    deposited_quantity="weight",
-    every=100,
-    species=["electrons", "ions"],
-    axes=[["x", 0, L_x, nx], ["y", 0, L_y, ny]],
-)
+# DiagParticleBinning(
+#     deposited_quantity="weight",
+#     every=100,
+#     species=["electrons", "ions"],
+#     axes=[["x", 0, L_x, nx], ["y", 0, L_y, ny]],
+# )

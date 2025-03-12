@@ -2,6 +2,7 @@
 
 # Set the output directory name with the current date and time
 output_dir=$(date +"%Y-%m-%d_%H-%M-%S")
+# output_dir="output_3-12-2025"
 echo "Output directory: $output_dir"
 
 # Create the output directory
