@@ -29,7 +29,7 @@ S = happi.Open(os.path.dirname(os.path.realpath(__file__)))
 
 # Get the TimeSteps from scalars/fields?
 time = S.Scalar("time")
-timesteps = time.getTimesteps()  # ?
+timesteps = time.getTimesteps()
 
 # Access field data for Bx, By, and Bz over the grid and time
 Bx_field_diag = S.Field(0, "Bx")

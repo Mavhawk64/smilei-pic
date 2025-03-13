@@ -5,7 +5,7 @@ import happi
 import matplotlib.pyplot as plt
 import numpy as np
 from matplotlib.animation import FuncAnimation
-from matplotlib.colors import Normalize
+from matplotlib.colors import LogNorm
 from scipy.fft import fftfreq, fftn
 
 gc.collect()
@@ -27,129 +27,82 @@ def save_animation(animation: FuncAnimation, filename: str, fps: int = 10):
 # Open the simulation results
 S = happi.Open(os.path.dirname(os.path.realpath(__file__)))
 
-# Access tracked particle data for specific species: "electrons" and "ions"
-tracked_diag = S.TrackParticles("electrons", axes=["x", "y", "px", "py"])
-ion_tracked_diag = S.TrackParticles("ions", axes=["x", "y", "px", "py"])
+# Get the TimeSteps from scalars/fields?
+time = S.Scalar("time")
+timesteps = time.getTimesteps()
+
+tracked_diag = S.TrackParticles("electrons", axes=["px", "py"])
+ion_tracked_diag = S.TrackParticles("ions", axes=["px", "py"])
 
 # Get x, y, px, py positions and momenta across timesteps for both electrons and ions
 data = tracked_diag.getData()
 ion_data = ion_tracked_diag.getData()
-x_data = np.array(data["x"])
-y_data = np.array(data["y"])
-px_data = np.array(data["px"])
-py_data = np.array(data["py"])
-ion_x_data = np.array(ion_data["x"])
-ion_y_data = np.array(ion_data["y"])
-ion_px_data = np.array(ion_data["px"])
-ion_py_data = np.array(ion_data["py"])
-timesteps = tracked_diag.getTimesteps()
+px_data = np.nan_to_num(np.array(data["px"]))
+py_data = np.nan_to_num(np.array(data["py"]))
+ion_px_data = np.nan_to_num(np.array(ion_data["px"]))
+ion_py_data = np.nan_to_num(np.array(ion_data["py"]))
 
 # Access field data for Bx, By, and Bz over the grid and time
 Bx_field_diag = S.Field(0, "Bx")
 By_field_diag = S.Field(0, "By")
 Bz_field_diag = S.Field(0, "Bz")
 
-Bx_data = np.array(Bx_field_diag.getData())
-By_data = np.array(By_field_diag.getData())
-Bz_data = np.array(Bz_field_diag.getData())
+Bx_data = np.nan_to_num(np.array(Bx_field_diag.getData()))
+By_data = np.nan_to_num(np.array(By_field_diag.getData()))
+Bz_data = np.nan_to_num(np.array(Bz_field_diag.getData()))
 B_magnitude = np.sqrt(Bx_data**2 + By_data**2 + Bz_data**2)
 
 # Get axis boundaries
-x_axis = tracked_diag.getAxis("x")
-y_axis = tracked_diag.getAxis("y")
+x_axis = [0, 40]
+y_axis = [0, 20]
 
 gc.collect()
 
-# ==============================
-# 1. Particle Positions Animation
-# ==============================
+# Define custom colormap
+from matplotlib.colors import LinearSegmentedColormap
 
-fig1, ax1 = plt.subplots(figsize=(8, 6))
-electron_scat = ax1.scatter([], [], s=0.001, color="magenta", label="Electrons")
-ion_scat = ax1.scatter([], [], s=0.001, color="cyan", label="Ions")
-ax1.set_xlim(x_axis[0], x_axis[1])
-ax1.set_ylim(y_axis[0], y_axis[1])
-ax1.set_xlabel("x position")
-ax1.set_ylabel("y position")
-ax1.set_title("Particle Positions in x-y Plane")
-
-# Add custom legends for particles
-from matplotlib.lines import Line2D
-
-custom_legend = [
-    Line2D(
-        [0],
-        [0],
-        marker="o",
-        color="w",
-        markerfacecolor="magenta",
-        markersize=5,
-        label="Electrons",
-    ),
-    Line2D(
-        [0],
-        [0],
-        marker="o",
-        color="w",
-        markerfacecolor="cyan",
-        markersize=5,
-        label="Ions",
-    ),
-]
-ax1.legend(handles=custom_legend, loc="upper right")
-
-
-def init_particles():
-    empty_data = np.empty((0, 2))
-    electron_scat.set_offsets(empty_data)
-    ion_scat.set_offsets(empty_data)
-    return electron_scat, ion_scat
-
-
-def update_particles(frame):
-    current_x = x_data[frame, :]
-    current_y = y_data[frame, :]
-    ion_current_x = ion_x_data[frame, :]
-    ion_current_y = ion_y_data[frame, :]
-
-    electron_positions = np.column_stack((current_x, current_y))
-    ion_positions = np.column_stack((ion_current_x, ion_current_y))
-    electron_scat.set_offsets(electron_positions)
-    ion_scat.set_offsets(ion_positions)
-    ax1.set_title(f"Particle Positions at Timestep {timesteps[frame]}")
-    return electron_scat, ion_scat
-
-
-particle_animation = FuncAnimation(
-    fig1, update_particles, frames=len(timesteps), init_func=init_particles, blit=True
+fixed_custom_cmap = LinearSegmentedColormap.from_list(
+    "fixed_custom_cmap",
+    [
+        ("black"),  # 0 -> Black
+        ("#00265b"),  # 10^-3 -> Deep Blue
+        ("#00965f"),  # 10^-2 -> Green
+        ("#ff0000"),  # 10^-1 -> Red
+        ("#ffff00"),  # 10^0 -> Yellow
+    ],
 )
 
-# Save particle positions animation
-particle_output_file = os.path.join(
-    os.path.dirname(os.path.realpath(__file__)), "electron_ion_positions_xy.mp4"
-)
-save_animation(particle_animation, particle_output_file, fps=10)
-print(f"Particle positions animation saved as {particle_output_file}")
-
 # ==============================
-# 2. Magnetic Field Magnitude Animation
+# 1. Magnetic Field Magnitude Animation
 # ==============================
 
-fig2, ax2 = plt.subplots(figsize=(8, 6))
-cmap = plt.get_cmap("coolwarm")
-norm = Normalize(vmin=np.min(B_magnitude), vmax=np.max(B_magnitude))
+fig2, ax2 = plt.subplots(
+    figsize=(10, 5)
+)  # Set figure size to maintain a 2:1 aspect ratio
+
+# Use logarithmic normalization
+norm = LogNorm(vmin=1e-3, vmax=1)
+
 im = ax2.imshow(
     B_magnitude[0].T,
-    cmap=cmap,
+    cmap=fixed_custom_cmap,
     norm=norm,
     extent=[x_axis[0], x_axis[1], y_axis[0], y_axis[1]],
+    origin="lower",
     aspect="auto",
 )
+
+ax2.set_xlim(x_axis)
+ax2.set_ylim(y_axis)
 ax2.set_xlabel("x position")
 ax2.set_ylabel("y position")
 ax2.set_title("Magnetic Field Magnitude B over time")
-cbar = fig2.colorbar(im, ax=ax2)
+
+# Set log-scale colorbar
+cbar = fig2.colorbar(im, ax=ax2, orientation="vertical")
 cbar.set_label(r"$|B| = \sqrt{B_x^2 + B_y^2 + B_z^2}$")
+cbar.set_ticks([1e-3, 1e-2, 1e-1, 1e0])
+cbar.set_ticklabels(["$10^{-3}$", "$10^{-2}$", "$10^{-1}$", "$10^{0}$"])
 
 
 def init_field():
@@ -174,76 +127,45 @@ save_animation(field_animation, field_output_file, fps=10)
 print(f"Magnetic field magnitude animation saved as {field_output_file}")
 
 # ==============================
-# 3. Power Spectrum Animation
+# 2. Energy Histogram Animation
 # ==============================
 
-fft_data = fftn(B_magnitude, axes=(1, 2))
-power_spectrum = np.abs(fft_data) ** 2
-freq_x = fftfreq(Bx_data.shape[1], d=(x_axis[1] - x_axis[0]) / Bx_data.shape[1])
-freq_y = fftfreq(By_data.shape[2], d=(y_axis[1] - y_axis[0]) / By_data.shape[2])
+e_energy = 0.5 * S.namelist.Species[0].mass ** -1 * (px_data**2 + py_data**2)
+i_energy = 0.5 * S.namelist.Species[1].mass ** -1 * (ion_px_data**2 + ion_py_data**2)
 
-fig_ps, ax_ps = plt.subplots(figsize=(8, 6))
-im_ps = ax_ps.imshow(
-    power_spectrum[0].T,
-    cmap="inferno",
-    extent=[freq_x.min(), freq_x.max(), freq_y.min(), freq_y.max()],
-    aspect="auto",
-    norm=Normalize(vmin=0, vmax=0.1),  # power_spectrum.max())
+# Determine bin count using Sturges' rule
+num_bins = int(np.ceil(1 + np.log2(len(e_energy[0]))))
+
+fig3, ax3 = plt.subplots(figsize=(8, 5))
+
+# Set fixed axis limits
+energy_min = min(e_energy.min(), i_energy.min())
+energy_max = max(e_energy.max(), i_energy.max())
+ax3.set_xlim(energy_min, energy_max)
+ax3.set_ylim(0, None)  # Auto-scale y-axis
+
+
+# Animation update function
+def update_hist(frame):
+    ax3.clear()
+    ax3.hist(e_energy[frame], bins=num_bins, color="cyan", alpha=0.5, label="Electrons")
+    ax3.hist(i_energy[frame], bins=num_bins, color="magenta", alpha=0.5, label="Ions")
+    ax3.set_xlim(energy_min, energy_max)
+    ax3.set_ylim(0, None)
+    ax3.set_xlabel("Energy")
+    ax3.set_ylabel("Counts")
+    ax3.set_title(
+        f"Energy Distribution at Timestep {int(frame / (len(e_energy)-1) * max(timesteps))}"
+    )
+    ax3.legend()
+
+
+hist_animation = FuncAnimation(fig3, update_hist, frames=len(e_energy), blit=False)
+
+hist_output_file = os.path.join(
+    os.path.dirname(os.path.realpath(__file__)), "energy_histogram.mp4"
 )
-ax_ps.set_xlabel("Frequency (x)")
-ax_ps.set_ylabel("Frequency (y)")
-ax_ps.set_title("Power Spectrum Density")
-cbar_ps = fig_ps.colorbar(im_ps, ax=ax_ps)
-cbar_ps.set_label("Spectral Density")
+save_animation(hist_animation, hist_output_file, fps=5)
+print(f"Energy histogram animation saved as {hist_output_file}")
 
-
-def update_ps(frame):
-    im_ps.set_data(power_spectrum[frame].T)
-    ax_ps.set_title(f"Power Spectrum at Timestep {timesteps[frame]}")
-    return (im_ps,)
-
-
-ps_animation = FuncAnimation(fig_ps, update_ps, frames=len(timesteps), blit=True)
-ps_output_file = os.path.join(
-    os.path.dirname(os.path.realpath(__file__)), "power_spectrum.mp4"
-)
-save_animation(ps_animation, ps_output_file, fps=10)
-print(f"Power Spectrum animation saved as {ps_output_file}")
-
-# ==============================
-# 4. Temperature Plot
-# ==============================
-
-# too expensive
-# electron_temperature = (px_data**2 + py_data**2).mean(axis=1)
-# ion_temperature = (ion_px_data**2 + ion_py_data**2).mean(axis=1)
-
-electron_temperature = []
-ion_temperature = []
-for i in range(len(timesteps)):
-    electron_temperature.append((px_data[i] ** 2 + py_data[i] ** 2).mean())
-    ion_temperature.append((ion_px_data[i] ** 2 + ion_py_data[i] ** 2).mean())
-
-fig_temp, ax_temp = plt.subplots(figsize=(8, 6))
-(line_e,) = ax_temp.plot([], [], label="Electron Temperature", color="magenta")
-(line_i,) = ax_temp.plot([], [], label="Ion Temperature", color="cyan")
-ax_temp.set_xlim(0, timesteps.max())
-ax_temp.set_ylim(0, max(electron_temperature.max(), ion_temperature.max()) * 1.1)
-ax_temp.set_xlabel("Time")
-ax_temp.set_ylabel("Temperature")
-ax_temp.legend()
-ax_temp.set_title("Temperature Evolution")
-
-
-def update_temp(frame):
-    line_e.set_data(timesteps[:frame], electron_temperature[:frame])
-    line_i.set_data(timesteps[:frame], ion_temperature[:frame])
-    return line_e, line_i
-
-
-temp_animation = FuncAnimation(fig_temp, update_temp, frames=len(timesteps), blit=True)
-temp_output_file = os.path.join(
-    os.path.dirname(os.path.realpath(__file__)), "temperature_evolution.mp4"
-)
-save_animation(temp_animation, temp_output_file, fps=10)
-print(f"Temperature animation saved as {temp_output_file}")
+gc.collect()

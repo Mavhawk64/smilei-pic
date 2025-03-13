@@ -1,0 +1,99 @@
+
+
+--- Timestep = 0 x Main.print_every =  ---
+       Time 	 Min   		 Avg  		 Max   		 SD 
+     Particles	 1.141e+03	 1.357e+03	 1.655e+03	 2.237e+02
+   Diagnostics	 2.821e+00	 3.308e+00	 3.777e+00	 4.357e-01
+Sync Particles	 3.511e+01	 3.886e+01	 4.334e+01	 3.589e+00
+Sync Densities	 3.065e+01	 3.556e+02	 5.975e+02	 2.488e+02
+Part Injection	 3.614e-02	 2.267e+01	 4.541e+01	 2.263e+01
+
+
+--- Timestep = 1 x Main.print_every =  ---
+       Time 	 Min   		 Avg  		 Max   		 SD 
+     Particles	 2.578e+03	 2.745e+03	 2.997e+03	 1.765e+02
+   Diagnostics	 5.992e+00	 6.443e+00	 6.750e+00	 3.126e-01
+Sync Particles	 7.722e+01	 7.936e+01	 8.242e+01	 2.128e+00
+Sync Densities	 2.984e+02	 5.761e+02	 7.673e+02	 2.000e+02
+Part Injection	 7.107e-02	 2.297e+01	 4.596e+01	 2.289e+01
+
+
+--- Timestep = 2 x Main.print_every =  ---
+       Time 	 Min   		 Avg  		 Max   		 SD 
+     Particles	 3.695e+03	 4.102e+03	 4.419e+03	 3.210e+02
+   Diagnostics	 9.602e+00	 9.933e+00	 1.042e+01	 3.109e-01
+Sync Particles	 1.142e+02	 1.205e+02	 1.260e+02	 5.473e+00
+Sync Densities	 8.121e+02	 1.111e+03	 1.501e+03	 3.034e+02
+Part Injection	 1.020e-01	 2.327e+01	 4.654e+01	 2.317e+01
+
+
+--- Timestep = 3 x Main.print_every =  ---
+       Time 	 Min   		 Avg  		 Max   		 SD 
+     Particles	 4.392e+03	 5.459e+03	 6.561e+03	 9.769e+02
+   Diagnostics	 1.259e+01	 1.353e+01	 1.472e+01	 9.350e-01
+Sync Particles	 1.464e+02	 1.621e+02	 1.774e+02	 1.461e+01
+Sync Densities	 8.207e+02	 1.914e+03	 2.972e+03	 9.671e+02
+Part Injection	 1.320e-01	 2.357e+01	 4.709e+01	 2.344e+01
+
+
+--- Timestep = 4 x Main.print_every =  ---
+       Time 	 Min   		 Avg  		 Max   		 SD 
+     Particles	 5.042e+03	 6.797e+03	 8.712e+03	 1.670e+03
+   Diagnostics	 1.573e+01	 1.730e+01	 1.917e+01	 1.553e+00
+Sync Particles	 1.786e+02	 2.041e+02	 2.295e+02	 2.412e+01
+Sync Densities	 8.366e+02	 2.752e+03	 4.507e+03	 1.668e+03
+Part Injection	 1.629e-01	 2.389e+01	 4.767e+01	 2.372e+01
+
+
+--- Timestep = 5 x Main.print_every =  ---
+       Time 	 Min   		 Avg  		 Max   		 SD 
+     Particles	 5.778e+03	 8.114e+03	 1.067e+04	 2.250e+03
+   Diagnostics	 1.914e+01	 2.124e+01	 2.364e+01	 2.058e+00
+Sync Particles	 2.127e+02	 2.457e+02	 2.791e+02	 3.157e+01
+Sync Densities	 8.620e+02	 3.429e+03	 5.771e+03	 2.255e+03
+Part Injection	 1.956e-01	 2.423e+01	 4.832e+01	 2.403e+01
+
+
+--- Timestep = 6 x Main.print_every =  ---
+       Time 	 Min   		 Avg  		 Max   		 SD 
+     Particles	 6.609e+03	 9.379e+03	 1.241e+04	 2.677e+03
+   Diagnostics	 2.233e+01	 2.482e+01	 2.765e+01	 2.440e+00
+Sync Particles	 2.470e+02	 2.854e+02	 3.246e+02	 3.701e+01
+Sync Densities	 8.850e+02	 3.923e+03	 6.704e+03	 2.687e+03
+Part Injection	 2.309e-01	 2.459e+01	 4.899e+01	 2.435e+01
+
+
+--- Timestep = 7 x Main.print_every =  ---
+       Time 	 Min   		 Avg  		 Max   		 SD 
+     Particles	 7.473e+03	 1.054e+04	 1.390e+04	 2.974e+03
+   Diagnostics	 2.544e+01	 2.821e+01	 3.135e+01	 2.720e+00
+Sync Particles	 2.791e+02	 3.211e+02	 3.641e+02	 4.061e+01
+Sync Densities	 9.236e+02	 4.292e+03	 7.377e+03	 2.986e+03
+Part Injection	 2.604e-01	 2.492e+01	 4.960e+01	 2.464e+01
+
+
+--- Timestep = 8 x Main.print_every =  ---
+       Time 	 Min   		 Avg  		 Max   		 SD 
+     Particles	 8.307e+03	 1.160e+04	 1.520e+04	 3.195e+03
+   Diagnostics	 2.837e+01	 3.134e+01	 3.470e+01	 2.925e+00
+Sync Particles	 3.081e+02	 3.527e+02	 3.985e+02	 4.320e+01
+Sync Densities	 9.599e+02	 4.574e+03	 7.885e+03	 3.210e+03
+Part Injection	 2.906e-01	 2.525e+01	 5.023e+01	 2.495e+01
+
+
+--- Timestep = 9 x Main.print_every =  ---
+       Time 	 Min   		 Avg  		 Max   		 SD 
+     Particles	 9.130e+03	 1.260e+04	 1.639e+04	 3.371e+03
+   Diagnostics	 3.153e+01	 3.466e+01	 3.819e+01	 3.069e+00
+Sync Particles	 3.378e+02	 3.843e+02	 4.322e+02	 4.526e+01
+Sync Densities	 1.018e+03	 4.822e+03	 8.310e+03	 3.388e+03
+Part Injection	 3.206e-01	 2.560e+01	 5.090e+01	 2.526e+01
+
+
+--- Timestep = 9 x Main.print_every =  ---
+       Time 	 Min   		 Avg  		 Max   		 SD 
+     Particles	 9.130e+03	 1.260e+04	 1.639e+04	 3.371e+03
+   Diagnostics	 3.153e+01	 3.466e+01	 3.819e+01	 3.069e+00
+Sync Particles	 3.378e+02	 3.843e+02	 4.322e+02	 4.526e+01
+Sync Densities	 1.018e+03	 4.822e+03	 8.310e+03	 3.388e+03
+Part Injection	 3.206e-01	 2.560e+01	 5.090e+01	 2.526e+01
